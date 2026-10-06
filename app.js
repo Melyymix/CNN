@@ -250,7 +250,7 @@ Atentamente,
 ${name}`
     );
 
-    window.location.href = `mailto:Gabriel.gutierrez@corpextcnn.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contacto@corpextcnn.com?subject=${subject}&body=${body}`;
     showToast('¡Formulario preparado! Se abrirá su cliente de correo.');
   });
 }

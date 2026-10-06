@@ -30,7 +30,7 @@ Para evitar saturar de información en una sola página, el sitio está dividido
    - Instrucciones de consignación de fletes y matriz comparativa de cuentas bancarias (BanBajio y Santander) con botón de **Copiar CLABE a 1-Clic**.
 
 6. **[contacto.html](contacto.html)** — *Contacto y Cotización*:
-   - Datos directos de atención del **C. Gabriel Gutiérrez Gallardo** (Asesor Aduanal) y del **Lic. Javier Gutiérrez García** (Director General).
+   - Datos directos de atención de los **Asesores Aduanales** y la **Dirección General**.
    - Formulario interactivo de cotización, botón flotante de WhatsApp y mapa interactivo de **Google Maps**.
 
 ---
