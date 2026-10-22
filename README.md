@@ -6,46 +6,43 @@ Sitio web multipágina profesional, moderno y artesanal, diseñado específicame
 
 ## 📌 Estructura Multipágina del Sitio
 
-Para evitar saturar de información en una sola página, el sitio está dividido en 6 páginas independientes y conectadas:
+Para evitar saturar de información en una sola página, el sitio está dividido en 5 páginas independientes y conectadas:
 
 1. **[index.html](index.html)** — *Inicio*:
-   - Presentación de alto impacto con titular principal, banner con estadísticas en vivo (+10 años corporativos, +20 años experiencia personal, 5 aduanas).
-   - Línea de tiempo interactiva con el proceso de 4 pasos para la liberación aduanal (*Revisión Previa → Gestión COVE → Despacho → Entrega*).
-   - Matriz destacada de servicios y llamado a la acción.
+   - Presentación de alto impacto con manifiesto logístico, banner con estadísticas (+10 años corporativos, +20 años experiencia personal, 5 aduanas).
+   - Flujo de trabajo técnico numerado de 4 pasos para la liberación aduanal (*Revisión Previa → VUCEM & COVE → Modulación SAT → Entrega en Planta*).
+   - Retícula de servicios destacados y llamado a la acción.
 
 2. **[nosotros.html](nosotros.html)** — *Sobre Nosotros*:
    - Carta de presentación oficial, Misión, Visión y Política de Calidad.
-   - Lista detallada de valores (*Honestidad, Ética, Capacitación Continua, Profesionalismo, Innovación*).
-   - Fotografía de la placa acrílica oficial de la **Sede Operativa - Oficina 1**.
+   - Lista detallada de valores en formato de reporte anual con numeración (*Honestidad y Ética, Rigor Normativo, Planeación Preventiva*).
+   - Galería fotográfica de las instalaciones y placa oficial de la **Sede Operativa**.
 
 3. **[servicios.html](servicios.html)** — *Servicios y Aduanas*:
-   - Desglose exhaustivo de los 9 servicios principales (Agencia Aduanal, Planeación, Permisos COVE/NOMs/Salud/SAGARPA, Recolección, Custodia, Etiquetado Fiscal, Consolidación, Asesoría Legal y Mercancías Especiales).
-   - Fichas de las 5 Aduanas de Operación Directa (AICM CDMX, Manzanillo, Veracruz, AIFA y Nuevo Laredo).
+   - Matriz Arquitectónica Swiss Grid de los 9 servicios principales (Agencia Aduanal, Planeación, Permisos COVE/NOMs/Salud/SAGARPA, Recolección, Custodia, Etiquetado Fiscal, Consolidación, Asesoría Legal y Mercancías Especiales).
+   - Fichas técnicas de las 5 Aduanas de Operación Directa con claves oficiales del SAT (AICM 470, Manzanillo 160, Veracruz 430, AIFA 850 y Nuevo Laredo 240).
 
 4. **[requisitos.html](requisitos.html)** — *Requisitos y Checklist*:
-   - Herramienta interactiva con pestañas para el Alta ante el SAT, Documentación por Llegar e Información Comercial.
-   - Contador de progreso en tiempo real y botón de **Imprimir Lista Solo Checklist** con formato membretado especial de impresión (`@media print`).
+   - Consola documental tipo VUCEM con pestañas para el Alta ante el SAT, Expediente de Embarque e Información Comercial.
+   - Contador de progreso en tiempo real y botón de **Imprimir Hoja Membretada** con formato membretado especial de impresión (`@media print`).
 
-5. **[consignacion.html](consignacion.html)** — *Consignación y Bancos*:
-   - Instrucciones de consignación de fletes y matriz comparativa de cuentas bancarias (BanBajio y Santander) con botón de **Copiar CLABE a 1-Clic**.
-
-6. **[contacto.html](contacto.html)** — *Contacto y Cotización*:
-   - Datos directos de atención de los **Asesores Aduanales** y la **Dirección General**.
-   - Formulario interactivo de cotización, botón flotante de WhatsApp y mapa interactivo de **Google Maps**.
+5. **[contacto.html](contacto.html)** — *Contacto y Cotización*:
+   - Datos directos de atención técnica y dirección corporativa.
+   - Formulario estructurado de cotización, botón flotante de WhatsApp y mapa interactivo de **Google Maps** con referencia visual de la fachada del edificio.
 
 ---
 
-## 🎨 Tipografías y Diseño
+## 🎨 Tipografías y Sistema de Diseño
 
 - **Tipografías de Google Fonts**:
-  - Encabezados: `Syne` + `Outfit`
-  - Texto base: `Plus Jakarta Sans`
+  - Texto base y titulares: `Plus Jakarta Sans`
+  - Énfasis editorial: `Instrument Serif` (cursiva institucional)
+  - Claves de aduana y metadatos técnicos: `JetBrains Mono`
 - **Iconos Oficiales**: `Google Material Symbols Outlined` (sin emojis en el código).
-- **Diseño sin "Cards sobre Cards"**:
-  - Fondos diagonales y bloques divididos.
-  - Línea de tiempo numerada.
-  - Tablas de matrices bancarias.
-  - Formularios ejecutivos con diseño responsive.
+- **Diseño Architectural Supply Chain / Editorial Swiss Grid**:
+  - Retículas con líneas de 1px y bordes arquitectónicos nítidos.
+  - Modo Claro (papel técnico `#F6F5F2`) y Modo Oscuro (midnight `#070C14`).
+  - Formato oficial de impresión en hoja membretada para el checklist de requisitos.
 
 ---
 

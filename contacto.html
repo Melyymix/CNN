@@ -6,6 +6,7 @@
   <title>Contacto y Cotización | Corporativo en Comercio Exterior CNN</title>
   <meta name="description" content="Póngase en contacto con nuestros Asesores Aduanales o solicite una cotización para sus embarques de comercio exterior.">
   
+  <script>(function(){const t=localStorage.getItem('cnn_theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="assets/images/cnn_logo.png">
@@ -28,7 +29,6 @@
         <a href="nosotros.html" class="nav-link">Nosotros</a>
         <a href="servicios.html" class="nav-link">Servicios y Aduanas</a>
         <a href="requisitos.html" class="nav-link">Requisitos</a>
-        <a href="consignacion.html" class="nav-link">Consignación y Bancos</a>
         <a href="contacto.html" class="nav-link active">Contacto</a>
       </nav>
 
@@ -36,7 +36,10 @@
         <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
           <!-- Icon injected by JS -->
         </button>
-        <a href="contacto.html" class="btn btn-primary">Cotizar Operación</a>
+        <a href="contacto.html" class="btn btn-primary">
+          <span>Cotizar Operación</span>
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
         <button class="mobile-nav-toggle" id="navToggle" aria-label="Menú">
           <span class="material-symbols-outlined">menu</span>
         </button>
@@ -52,11 +55,16 @@
   <!-- PAGE HEADER -->
   <section class="section-hero-header">
     <div class="container">
-      <span class="section-tag" style="background:rgba(255,255,255,0.15); color:#ffffff; border-color:rgba(255,255,255,0.3);">
-        <span class="material-symbols-outlined">call</span> Comunicación Directa
-      </span>
+      <div class="breadcrumb-trail">
+        <a href="index.html">Inicio</a>
+        <span>/</span>
+        <span>Contacto</span>
+      </div>
+      <div class="section-tag" style="color:var(--accent-gold);">
+        CANAL DIRECTO // MESA DE CONTROL Y COTIZACIONES
+      </div>
       <h1>Contacto y Solicitud de Cotización</h1>
-      <p>Póngase en comunicación con nuestro equipo técnico o envíe los datos de su embarque para recibir atención personalizada.</p>
+      <p>Establezca comunicación técnica directa con nuestros Asesores Aduanales o ingrese las especificaciones de su embarque para recibir una propuesta formal.</p>
     </div>
   </section>
 
@@ -64,19 +72,19 @@
   <section class="section">
     <div class="container">
       <div class="contact-split">
-        <!-- DATOS DE CONTACTO DIRECTO -->
+        <!-- DATOS DE CONTACTO DIRECTO (TARJETA OSCURA SÓLIDA #081220) -->
         <div class="contact-info-card reveal reveal-left">
           <div>
             <h3>Oficina Central & Atención Directa</h3>
-            <p>Estamos a sus órdenes para brindar respuestas oportunas a sus trámites de importación y exportación.</p>
+            <p>Atención personalizada para dictamen de clasificación, cotización de fletes y desaduanamiento.</p>
 
             <div class="contact-detail-item">
               <div class="contact-icon-circle">
                 <span class="material-symbols-outlined">location_on</span>
               </div>
               <div class="contact-detail-text">
-                <h4>Dirección Fiscal y Operativa</h4>
-                <p>Poniente 16 Mz. 3 Lt. 4 Dpto. 1, Col. Cuchilla del Tesoro, Ciudad de México, C.P. 07900.</p>
+                <h4>Domicilio Fiscal y Operativo</h4>
+                <p>Poniente 16 Mz. 3 Lt. 4 Dpto. 1, Col. Cuchilla del Tesoro, Gustavo A. Madero, CDMX, C.P. 07900.</p>
               </div>
             </div>
 
@@ -86,7 +94,7 @@
               </div>
               <div class="contact-detail-text">
                 <h4>Atención por Correo</h4>
-                <p><strong>contacto@corpextcnn.com</strong></p>
+                <p><a href="mailto:contacto@corpextcnn.com" style="color:#ffffff; font-weight:700;">contacto@corpextcnn.com</a></p>
               </div>
             </div>
 
@@ -95,57 +103,61 @@
                 <span class="material-symbols-outlined">call</span>
               </div>
               <div class="contact-detail-text">
-                <h4>Teléfonos Directos</h4>
-                <p><span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle;">call</span> <strong>Oficina:</strong> <a href="tel:5500000000" style="color:#ffffff; font-weight:700;">55 0000 0000</a></p>
-                <p><span class="material-symbols-outlined" style="font-size:16px; vertical-align:middle;">smartphone</span> <strong>Celular / WhatsApp:</strong> <a href="tel:5500000000" style="color:#ffffff; font-weight:700;">55 0000 0000</a></p>
+                <h4>Líneas Telefónicas</h4>
+                <p><strong>Oficina:</strong> <a href="tel:5500000000" style="color:#ffffff; font-weight:700;">55 0000 0000</a></p>
+                <p style="margin-top:0.25rem;"><strong>Móvil / WA:</strong> <a href="tel:5500000000" style="color:#ffffff; font-weight:700;">55 0000 0000</a></p>
               </div>
             </div>
 
-            <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:1.5rem;">
-              <a href="https://wa.me/525500000000?text=Hola,%20deseo%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" class="contact-action-btn" style="background:#25d366; border-color:#25d366;">
-                <span class="material-symbols-outlined" style="font-size:18px;">chat</span> WhatsApp Directo
+            <div style="display:flex; gap:0.65rem; flex-wrap:wrap; margin-top:2rem;">
+              <a href="https://wa.me/525500000000?text=Hola,%20deseo%20informaci%C3%B3n%20sobre%20sus%20servicios" target="_blank" class="contact-action-btn" style="background:var(--accent-cyan); border-color:var(--accent-cyan);">
+                <span class="material-symbols-outlined">chat</span>
+                <span>WhatsApp Directo</span>
               </a>
               <a href="tel:5500000000" class="contact-action-btn">
-                <span class="material-symbols-outlined" style="font-size:18px;">call</span> Llamar a Oficina
+                <span class="material-symbols-outlined">call</span>
+                <span>Llamar a Conmutador</span>
               </a>
             </div>
           </div>
 
-          <div style="display:flex; flex-direction:column; gap:1rem; margin-top:2rem;">
+          <div style="display:flex; flex-direction:column; gap:0.85rem; margin-top:2.5rem;">
             <div class="director-badge">
               <div class="director-title">Asesor Aduanal Directo</div>
-              <div class="director-name" style="font-size:1.15rem;">Atención Corporativa CNN</div>
-              <div style="font-size:0.85rem; color:rgba(255,255,255,0.9); margin-top:0.3rem;">
-                <span class="material-symbols-outlined" style="font-size:15px;">mail</span> contacto@corpextcnn.com<br>
-                <span class="material-symbols-outlined" style="font-size:15px;">smartphone</span> Cel: 55 0000 0000 | <span class="material-symbols-outlined" style="font-size:15px;">call</span> Ofic: 55 0000 0000
+              <div class="director-name">Atención Corporativa CNN</div>
+              <div style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; color:rgba(255,255,255,0.78); margin-top:0.35rem; line-height:1.45;">
+                contacto@corpextcnn.com • CEL: 55 0000 0000
               </div>
             </div>
 
             <div class="director-badge">
-              <div class="director-title">Director General</div>
-              <div class="director-name" style="font-size:1.15rem;">Dirección General CNN</div>
-              <div style="font-size:0.85rem; color:rgba(255,255,255,0.85);">Dirección Ejecutiva Corporativa</div>
+              <div class="director-title">Dirección General</div>
+              <div class="director-name">Dirección General CNN</div>
+              <div style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; color:rgba(255,255,255,0.78); margin-top:0.25rem;">DIRECCIÓN EJECUTIVA CORPORATIVA</div>
             </div>
           </div>
         </div>
 
-        <!-- FORMULARIO DE COTIZACIÓN -->
+        <!-- FORMULARIO DE COTIZACIÓN TÉCNICA -->
         <div class="form-card reveal reveal-right delay-200">
-          <h3 style="font-size:1.6rem; margin-bottom:0.5rem;">Formulario de Cotización</h3>
-          <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.75rem;">
-            Complete los campos para enviarle una propuesta a la medida de sus necesidades logísticas.
+          <div class="section-tag">
+            FORMATO TÉCNICO // APERTURA DE EXPEDIENTE
+          </div>
+          <h3 style="font-size:1.6rem; margin-top:0.25rem; margin-bottom:0.4rem; font-weight:700;">Solicitud de Cotización Técnica</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.75rem;">
+            Ingrese los datos de su empresa y la descripción de su embarque para emitir la propuesta económica correspondiente.
           </p>
 
           <form id="quoteForm">
             <div class="form-grid">
               <div class="form-group">
-                <label class="form-label" for="quoteName">Nombre o Empresa *</label>
-                <input type="text" id="quoteName" class="form-input" placeholder="Ej. Importadora de México S.A." required>
+                <label class="form-label" for="quoteName">Nombre o Razón Social *</label>
+                <input type="text" id="quoteName" class="form-input" placeholder="Ej. Comercializadora Industrial S.A." required>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="quoteEmail">Correo Electrónico *</label>
-                <input type="email" id="quoteEmail" class="form-input" placeholder="correo@empresa.com" required>
+                <label class="form-label" for="quoteEmail">Correo Electrónico Oficial *</label>
+                <input type="email" id="quoteEmail" class="form-input" placeholder="trafico@empresa.com" required>
               </div>
 
               <div class="form-group">
@@ -154,37 +166,39 @@
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="quoteService">Servicio Requerido</label>
+                <label class="form-label" for="quoteService">Servicio Principal Requerido</label>
                 <select id="quoteService" class="form-select">
                   <option value="Agencia Aduanal y Despacho">Agencia Aduanal y Despacho</option>
-                  <option value="Asesoría y Planeación Aduanera">Asesoría y Planeación Aduanera</option>
+                  <option value="Asesoría y Planeación Logística">Asesoría y Planeación Logística</option>
                   <option value="Gestoría de Permisos (COVE/NOM/Salud)">Gestoría de Permisos (COVE/NOM/Salud)</option>
-                  <option value="Recolección, Custodia y Entrega">Recolección, Custodia y Entrega</option>
-                  <option value="Etiquetado en Almacenes Fiscales">Etiquetado en Almacenes Fiscales</option>
-                  <option value="Mercancías Especiales">Mercancías Especiales (Perecederos, Químicos, etc.)</option>
+                  <option value="Recolección, Fletes y Entrega">Recolección, Fletes y Entrega</option>
+                  <option value="Custodia y Resguardo de Mercancía">Custodia y Resguardo de Mercancía</option>
+                  <option value="Etiquetado en Depósito Fiscal">Etiquetado en Depósito Fiscal</option>
+                  <option value="Mercancías Especiales y Químicos">Mercancías Especiales (Perecederos, Químicos)</option>
                 </select>
               </div>
 
               <div class="form-group full-width">
-                <label class="form-label" for="quoteAduana">Aduana de Entrada / Operación</label>
+                <label class="form-label" for="quoteAduana">Aduana Preferente de Arribo / Despacho</label>
                 <select id="quoteAduana" class="form-select">
-                  <option value="AICM - Aeropuerto Ciudad de México">AICM - Aeropuerto Ciudad de México</option>
-                  <option value="AIFA - Aeropuerto Felipe Ángeles">AIFA - Aeropuerto Felipe Ángeles</option>
-                  <option value="Manzanillo, Colima">Manzanillo, Colima</option>
-                  <option value="Veracruz, Ver.">Veracruz, Ver.</option>
-                  <option value="Nuevo Laredo, Tamps.">Nuevo Laredo, Tamps.</option>
-                  <option value="Otra / Por definir">Otra / Por definir</option>
+                  <option value="AICM - Aeropuerto Internacional Ciudad de México">AICM - Aeropuerto Internacional Ciudad de México (Aduana 470)</option>
+                  <option value="AIFA - Aeropuerto Internacional Felipe Ángeles">AIFA - Aeropuerto Internacional Felipe Ángeles (Aduana 850)</option>
+                  <option value="Manzanillo, Colima (Pacífico)">Manzanillo, Colima • Pacífico (Aduana 160)</option>
+                  <option value="Veracruz, Ver. (Golfo de México)">Veracruz, Ver. • Golfo de México (Aduana 430)</option>
+                  <option value="Nuevo Laredo, Tamaulipas (Frontera)">Nuevo Laredo, Tamaulipas • Frontera Norte (Aduana 240)</option>
+                  <option value="Otra / Dictamen por Asesor">Otra / Dictamen Técnico por Asesor</option>
                 </select>
               </div>
 
               <div class="form-group full-width">
-                <label class="form-label" for="quoteNotes">Detalles del Embarque / Mercancía</label>
-                <textarea id="quoteNotes" class="form-textarea" rows="4" placeholder="Describa brevemente el tipo de mercancía, volumen o dudas específicas..."></textarea>
+                <label class="form-label" for="quoteNotes">Especificaciones del Embarque y Mercancía</label>
+                <textarea id="quoteNotes" class="form-textarea" rows="4" placeholder="Indique tipo de mercancía, fracción arancelaria aproximada (si cuenta con ella), volumen, peso bruto y régimen aduanero..."></textarea>
               </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%; margin-top:1rem;" id="submitQuoteBtn">
-              Enviar Solicitud de Cotización
+            <button type="submit" class="btn btn-primary" style="width:100%; margin-top:1.25rem;" id="submitQuoteBtn">
+              <span class="material-symbols-outlined">send</span>
+              <span>Transmitir Solicitud de Cotización</span>
             </button>
           </form>
         </div>
@@ -196,11 +210,17 @@
         <div class="map-card-wrapper">
           <div class="map-header">
             <h3 class="map-title">
-              <span class="material-symbols-outlined" style="color:var(--accent-cyan);">map</span>
-              Ubicación y Mapa Vial de la Calle
+              <span class="material-symbols-outlined" style="color:var(--accent-gold);">map</span>
+              <span>Ubicación Vial Oficial</span>
             </h3>
-            <span style="font-size:0.875rem; color:var(--text-muted);">Poniente 16 Mz. 3 Lt. 4 Dpto. 1, Col. Cuchilla del Tesoro, CDMX</span>
+            <a href="https://maps.google.com/?q=Poniente+16+Cuchilla+del+Tesoro+CDMX" target="_blank" class="copy-btn">
+              <span class="material-symbols-outlined">open_in_new</span>
+              <span>Abrir en Google Maps</span>
+            </a>
           </div>
+          <p style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; color:var(--text-muted); margin-bottom:1rem;">
+            GEO.REF: PONIENTE 16 MZ. 3 LT. 4 DPTO. 1, CUCHILLA DEL TESORO, CDMX
+          </p>
           <iframe 
             class="map-iframe" 
             src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d1881.105104925153!2d-99.06544369444832!3d19.446501624758742!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1789497444149!5m2!1ses-419!2smx" 
@@ -216,14 +236,18 @@
           <div class="building-header">
             <h3>
               <span class="material-symbols-outlined" style="color:var(--accent-gold);">domain</span>
-              Referencia Visual del Edificio
+              <span>Fachada Física del Edificio</span>
             </h3>
-            <p>Fachada física de las instalaciones para fácil localización al llegar</p>
+            <span class="mini-badge">SEDE FÍSICA</span>
           </div>
+          <p style="font-family:'JetBrains Mono', monospace; font-size:0.75rem; color:var(--text-muted); margin-bottom:1rem;">
+            DOC.PHOTO: REFERENCIA VISUAL DE LAS INSTALACIONES OPERATIVAS
+          </p>
           <div class="building-img-box">
             <img src="assets/images/edificio_fachada.png" alt="Fachada del Edificio de Oficinas CNN Comercio Exterior" class="building-img">
             <div class="building-badge">
-              <span class="material-symbols-outlined" style="font-size:16px;">pin_drop</span> Poniente 16 #4 (Edificio de 3 niveles con base azul)
+              <span class="material-symbols-outlined" style="font-size:16px; color:var(--accent-gold);">pin_drop</span>
+              <span>Poniente 16 #4 • Edificio de 3 niveles con base azul (A 5 min del AICM)</span>
             </div>
           </div>
         </div>
@@ -243,47 +267,49 @@
               <span class="logo-subtitle">Comercio Exterior S.A. de C.V.</span>
             </div>
           </div>
-          <p>Soluciones seguras, eficientes y expeditas para sus operaciones de comercio internacional.</p>
+          <p>Soluciones aduanales de alta precisión y desaduanamiento expedito para sus operaciones en los principales puertos y fronteras de México.</p>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-title">Páginas</h4>
+          <h4 class="footer-title">Páginas Principales</h4>
           <div class="footer-links">
             <a href="index.html">Inicio</a>
             <a href="nosotros.html">Sobre Nosotros</a>
             <a href="servicios.html">Servicios y Aduanas</a>
-            <a href="requisitos.html">Requisitos</a>
+            <a href="requisitos.html">Requisitos de Cliente</a>
           </div>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-title">Recursos</h4>
+          <h4 class="footer-title">Recursos Operativos</h4>
           <div class="footer-links">
-            <a href="consignacion.html">Datos de Consignación</a>
-            <a href="consignacion.html">Cuentas Bancarias</a>
+            <a href="servicios.html">Aduanas y Nodos de Despacho</a>
             <a href="requisitos.html">Checklist de Documentos</a>
-            <a href="contacto.html">Contacto y Mapa</a>
+            <a href="requisitos.html">Formato Oficial de Expediente</a>
+            <a href="contacto.html">Mesa de Cotizaciones</a>
           </div>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-title">Contacto</h4>
+          <h4 class="footer-title">Mesa de Operaciones</h4>
           <div class="footer-links">
-            <span style="color:var(--text-muted); font-size:0.9rem;"><span class="material-symbols-outlined" style="font-size:16px;">location_on</span> Cuchilla del Tesoro, CDMX</span>
-            <span style="color:var(--text-muted); font-size:0.9rem;"><span class="material-symbols-outlined" style="font-size:16px;">mail</span> contacto@corpextcnn.com</span>
-            <span style="color:var(--text-muted); font-size:0.9rem;"><span class="material-symbols-outlined" style="font-size:16px;">smartphone</span> Cel: 55 0000 0000</span>
+            <span><span class="material-symbols-outlined" style="font-size:16px; color:var(--accent-gold);">location_on</span> Cuchilla del Tesoro, CDMX</span>
+            <a href="mailto:contacto@corpextcnn.com"><span class="material-symbols-outlined" style="font-size:16px; color:var(--accent-gold);">mail</span> contacto@corpextcnn.com</a>
+            <a href="tel:5500000000"><span class="material-symbols-outlined" style="font-size:16px; color:var(--accent-gold);">smartphone</span> Cel / WA: 55 0000 0000</a>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>© <span id="year">2026</span> CORPORATIVO EN COMERCIO EXTERIOR CNN, S.A. DE C.V.</div>
-        <div>Optimizado para <strong>GitHub Pages</strong></div>
+        <div>© <span id="year">2026</span> CORPORATIVO EN COMERCIO EXTERIOR CNN, S.A. DE C.V. • Todos los derechos reservados.</div>
+        <div style="display:flex; align-items:center; gap:0.4rem;">
+          <span class="material-symbols-outlined" style="font-size:14px; color:var(--accent-gold);">verified</span>
+          <span>Alojado y optimizado en <strong>GitHub Pages</strong></span>
+        </div>
       </div>
     </div>
   </footer>
 
   <script src="app.js"></script>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

@@ -6,6 +6,7 @@
   <title>Requisitos de Operación | Corporativo en Comercio Exterior CNN</title>
   <meta name="description" content="Centro de Documentación e Información Requerida para Alta de Cliente, Permisos SAT, COVE y Documentos para Mercancías por Llegar.">
   
+  <script>(function(){const t=localStorage.getItem('cnn_theme')||'light';document.documentElement.setAttribute('data-theme',t);})();</script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="assets/images/cnn_logo.png">
@@ -28,7 +29,6 @@
         <a href="nosotros.html" class="nav-link">Nosotros</a>
         <a href="servicios.html" class="nav-link">Servicios y Aduanas</a>
         <a href="requisitos.html" class="nav-link active">Requisitos</a>
-        <a href="consignacion.html" class="nav-link">Consignación y Bancos</a>
         <a href="contacto.html" class="nav-link">Contacto</a>
       </nav>
 
@@ -36,7 +36,10 @@
         <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
           <!-- Icon injected by JS -->
         </button>
-        <a href="contacto.html" class="btn btn-primary">Cotizar Operación</a>
+        <a href="contacto.html" class="btn btn-primary">
+          <span>Cotizar Operación</span>
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
         <button class="mobile-nav-toggle" id="navToggle" aria-label="Menú">
           <span class="material-symbols-outlined">menu</span>
         </button>
@@ -52,55 +55,69 @@
   <!-- PAGE HEADER -->
   <section class="section-hero-header">
     <div class="container">
-      <span class="section-tag" style="background:rgba(255,255,255,0.15); color:#ffffff; border-color:rgba(255,255,255,0.3);">
-        <span class="material-symbols-outlined">checklist</span> Guía de Cliente
-      </span>
+      <div class="breadcrumb-trail">
+        <a href="index.html">Inicio</a>
+        <span>/</span>
+        <span>Requisitos</span>
+      </div>
+      <div class="section-tag" style="color:var(--accent-gold);">
+        CONSOLA DOCUMENTAL // INTEGRACIÓN DE EXPEDIENTE ARANCELARIO
+      </div>
       <h1>Centro de Documentación e Información</h1>
-      <p>Verifique los requisitos oficiales vigentes solicitados para la atención ágil de sus embarques e inscripciones.</p>
+      <p>Cotejo oficial de requisitos normativos para alta fiscal de cliente, formalización de encargo conferido e integración de expediente aduanal ante el SAT.</p>
     </div>
   </section>
 
-  <!-- CHECKLIST TOOL -->
+  <!-- CHECKLIST TOOL & MEMBRETADO -->
   <section id="requisitos" class="section">
     <div class="container">
       <div class="checklist-wrapper reveal reveal-up">
-        <!-- Print Header Banner (Impresión limpia membretada) -->
+        <!-- Print Header Banner (Impresión limpia membretada oficial) -->
         <div class="print-banner">
           <div class="print-banner-left">
             <h2 class="print-company-name">CORPORATIVO EN COMERCIO EXTERIOR CNN, S.A. DE C.V.</h2>
-            <div class="print-doc-title">LISTA OFICIAL DE REQUISITOS Y DOCUMENTACIÓN</div>
+            <div class="print-doc-title">LISTA OFICIAL DE REQUISITOS Y DOCUMENTACIÓN ADUANERA</div>
             <div class="print-tab-subhead" id="printTabSubhead">Categoría: Alta de Cliente ante SAT / Agencia</div>
           </div>
           <div class="print-banner-right">
             <p><strong>Fecha de Emisión:</strong> <span id="printDate"></span></p>
             <p><strong>Asesor Aduanal:</strong> Atención Corporativa CNN</p>
-            <p><strong>Contacto:</strong> contacto@corpextcnn.com | 55 0000 0000</p>
+            <p><strong>Contacto Oficial:</strong> contacto@corpextcnn.com | 55 0000 0000</p>
           </div>
         </div>
 
+        <!-- Interactive Tabs Navigation: VUCEM Style Tabs -->
         <div class="checklist-tabs" role="tablist">
-          <button class="tab-btn active" data-tab="tabAltaSat">Alta de Cliente ante SAT / Agencia</button>
-          <button class="tab-btn" data-tab="tabOperacionesLlegar">Documentos de Embarque por Llegar</button>
-          <button class="tab-btn" data-tab="tabInfoComercial">Información Comercial de la Empresa</button>
+          <button class="tab-btn active" data-tab="tabAltaSat">
+            <span>[ 01 ]</span>
+            <span>Alta de Cliente ante SAT</span>
+          </button>
+          <button class="tab-btn" data-tab="tabOperacionesLlegar">
+            <span>[ 02 ]</span>
+            <span>Expediente de Embarque</span>
+          </button>
+          <button class="tab-btn" data-tab="tabInfoComercial">
+            <span>[ 03 ]</span>
+            <span>Información Comercial</span>
+          </button>
         </div>
 
         <!-- TAB 1: ALTA DE CLIENTE -->
         <div id="tabAltaSat" class="tab-content active">
-          <h3 class="print-section-title">1. Requisitos de Alta de Cliente ante SAT / Agencia Aduanal</h3>
           <div class="doc-list">
             <label class="doc-item">
               <input type="checkbox" id="doc1">
               <div>
                 <div class="doc-item-title">Copia de Alta ante el SAT</div>
-                <div class="doc-item-subtitle">Inscripción en el RFC expedida por el SAT</div>
+                <div class="doc-item-subtitle">Cédula de Inscripción en el Registro Federal de Contribuyentes (RFC)</div>
               </div>
             </label>
 
             <label class="doc-item">
               <input type="checkbox" id="doc2">
               <div>
-                <div class="doc-item-title">Modificaciones ante el SAT</div>
-                <div class="doc-item-subtitle">Actualizaciones de domicilio o actividades fiscales</div>
+                <div class="doc-item-title">Modificaciones de Situación Fiscal</div>
+                <div class="doc-item-subtitle">Avisos de cambio de domicilio, razón social o actividades económicas registradas</div>
               </div>
             </label>
 
@@ -108,7 +125,7 @@
               <input type="checkbox" id="doc3">
               <div>
                 <div class="doc-item-title">Constancia de Situación Fiscal</div>
-                <div class="doc-item-subtitle">Comprobante actualizado (no mayor a 30 días)</div>
+                <div class="doc-item-subtitle">Documento oficial expedido con código QR legible (emisión no mayor a 30 días)</div>
               </div>
             </label>
 
@@ -116,7 +133,7 @@
               <input type="checkbox" id="doc4">
               <div>
                 <div class="doc-item-title">Cédula de Identificación Fiscal (CIF)</div>
-                <div class="doc-item-subtitle">Cédula fiscal con código QR impreso</div>
+                <div class="doc-item-subtitle">Impresión oficial expedida por el Servicio de Administración Tributaria</div>
               </div>
             </label>
 
@@ -124,15 +141,15 @@
               <input type="checkbox" id="doc5">
               <div>
                 <div class="doc-item-title">Copia de Acta Constitutiva</div>
-                <div class="doc-item-subtitle">Instrumento notarial completo con datos de registro</div>
+                <div class="doc-item-subtitle">Testimonio notarial completo debidamente inscrito en el Registro Público de Comercio</div>
               </div>
             </label>
 
             <label class="doc-item">
               <input type="checkbox" id="doc6">
               <div>
-                <div class="doc-item-title">Poder Notarial del Representante</div>
-                <div class="doc-item-subtitle">Poder para actos de administración o comercio exterior</div>
+                <div class="doc-item-title">Poder Notarial del Representante Legal</div>
+                <div class="doc-item-subtitle">Facultades expresas para actos de administración y trámites de comercio exterior</div>
               </div>
             </label>
 
@@ -140,23 +157,23 @@
               <input type="checkbox" id="doc7">
               <div>
                 <div class="doc-item-title">Identificación Oficial del Apoderado</div>
-                <div class="doc-item-subtitle">INE o Pasaporte vigente de quien firma</div>
+                <div class="doc-item-subtitle">Credencial para votar (INE) o Pasaporte mexicano vigente del representante</div>
               </div>
             </label>
 
             <label class="doc-item">
               <input type="checkbox" id="doc8">
               <div>
-                <div class="doc-item-title">Copia del Alta de Agente Aduanal</div>
-                <div class="doc-item-subtitle">Encargo conferido en el portal del SAT</div>
+                <div class="doc-item-title">Acuse del Encargo Conferido (SAT)</div>
+                <div class="doc-item-subtitle">Acuse electrónico de aceptación de encargo conferido al Agente Aduanal en el SAT</div>
               </div>
             </label>
 
             <label class="doc-item">
               <input type="checkbox" id="doc9">
               <div>
-                <div class="doc-item-title">2 Comprobantes de Domicilio</div>
-                <div class="doc-item-subtitle">Luz, agua o teléfono a nombre de la empresa (recientes)</div>
+                <div class="doc-item-title">2 Comprobantes de Domicilio Fiscal</div>
+                <div class="doc-item-subtitle">Recibos recientes (luz, agua o telefonía) a nombre de la razón social (máx. 2 meses)</div>
               </div>
             </label>
 
@@ -164,7 +181,7 @@
               <input type="checkbox" id="doc10">
               <div>
                 <div class="doc-item-title">Sellos Digitales (COVE / E-Documents)</div>
-                <div class="doc-item-subtitle">Archivo zip con e.firma/CSD para tramitación electrónica</div>
+                <div class="doc-item-subtitle">Archivos .cer, .key y contraseña para la digitalización en ventanilla VUCEM</div>
               </div>
             </label>
 
@@ -172,7 +189,7 @@
               <input type="checkbox" id="doc11">
               <div>
                 <div class="doc-item-title">Carta Encomienda Requisitada</div>
-                <div class="doc-item-subtitle">Documento oficial debidamente firmado por la empresa</div>
+                <div class="doc-item-subtitle">Formato membretado de la empresa firmado en original por el representante legal</div>
               </div>
             </label>
           </div>
@@ -180,13 +197,12 @@
 
         <!-- TAB 2: DOCUMENTOS DE EMBARQUE -->
         <div id="tabOperacionesLlegar" class="tab-content">
-          <h3 class="print-section-title">2. Documentos Requeridos para Operaciones por Llegar</h3>
           <div class="doc-list">
             <label class="doc-item">
               <input type="checkbox" id="docShip1">
               <div>
-                <div class="doc-item-title">Copia de Guía Aérea / Conocimiento de Embarque</div>
-                <div class="doc-item-subtitle">Air Waybill (AWB) o Bill of Lading (B/L)</div>
+                <div class="doc-item-title">Copia de Guía Aérea o Conocimiento de Embarque</div>
+                <div class="doc-item-subtitle">Air Waybill (AWB máster y house) o Bill of Lading (B/L revalidado)</div>
               </div>
             </label>
 
@@ -194,15 +210,15 @@
               <input type="checkbox" id="docShip2">
               <div>
                 <div class="doc-item-title">Factura Comercial Requisitada</div>
-                <div class="doc-item-subtitle">Con Incoterm, desglose de mercancía y valores</div>
+                <div class="doc-item-subtitle">Con Incoterm pactado, desglose técnico de mercancía, números de serie y valores</div>
               </div>
             </label>
 
             <label class="doc-item">
               <input type="checkbox" id="docShip3">
               <div>
-                <div class="doc-item-title">Carta Traducción de Factura</div>
-                <div class="doc-item-subtitle">Traducción al español de las descripciones (en su caso)</div>
+                <div class="doc-item-title">Carta Traducción de Factura Comercial</div>
+                <div class="doc-item-subtitle">Traducción técnica al español de las descripciones en idioma extranjero</div>
               </div>
             </label>
 
@@ -210,31 +226,31 @@
               <input type="checkbox" id="docShip4">
               <div>
                 <div class="doc-item-title">Lista de Empaque (Packing List)</div>
-                <div class="doc-item-subtitle">Detalle de bultos, pesajes y volumen</div>
+                <div class="doc-item-subtitle">Detalle pormenorizado de bultos, pesaje bruto y neto, dimensiones y volumen</div>
               </div>
             </label>
 
             <label class="doc-item">
               <input type="checkbox" id="docShip5">
               <div>
-                <div class="doc-item-title">Certificado de Origen</div>
-                <div class="doc-item-subtitle">Para aplicación de tratados o preferencias arancelarias</div>
+                <div class="doc-item-title">Certificado de Origen Oficial</div>
+                <div class="doc-item-subtitle">Certificación bajo tratado comercial aplicable (T-MEC, TLCUEM, etc.) para aranceles preferenciales</div>
               </div>
             </label>
 
             <label class="doc-item">
               <input type="checkbox" id="docShip6">
               <div>
-                <div class="doc-item-title">Carta Poder para Recolección</div>
-                <div class="doc-item-subtitle">Para retiro de documentos originales en aerolínea/naviera</div>
+                <div class="doc-item-title">Carta Poder para Revalidación y Retiro</div>
+                <div class="doc-item-subtitle">Autorización formal para retiro de documentación en oficinas de aerolínea o naviera</div>
               </div>
             </label>
 
             <label class="doc-item">
               <input type="checkbox" id="docShip7">
               <div>
-                <div class="doc-item-title">Manifestación de Valor Requisitada</div>
-                <div class="doc-item-subtitle">Formato firmado conforme a la Ley Aduanera</div>
+                <div class="doc-item-title">Manifestación de Valor y Hoja de Cálculo</div>
+                <div class="doc-item-subtitle">Formato reglamentario requisitado conforme a las disposiciones de la Ley Aduanera</div>
               </div>
             </label>
           </div>
@@ -242,54 +258,54 @@
 
         <!-- TAB 3: INFORMACIÓN COMERCIAL -->
         <div id="tabInfoComercial" class="tab-content">
-          <h3 class="print-section-title">3. Información Comercial de su Empresa</h3>
           <div class="doc-list">
             <label class="doc-item">
               <input type="checkbox" id="docCom1">
               <div>
-                <div class="doc-item-title">Nombre de la Empresa o Importador</div>
-                <div class="doc-item-subtitle">Razón Social y RFC completo</div>
+                <div class="doc-item-title">Razón Social y Datos Fiscales Completos</div>
+                <div class="doc-item-subtitle">Nombre legal de la entidad, RFC, régimen tributario y domicilio fiscal principal</div>
               </div>
             </label>
 
             <label class="doc-item">
               <input type="checkbox" id="docCom2">
               <div>
-                <div class="doc-item-title">Responsable de Operaciones de Comercio Exterior</div>
-                <div class="doc-item-subtitle">Nombre del gerente, correo electrónico y contacto directo</div>
+                <div class="doc-item-title">Responsable de Operaciones y Tráfico</div>
+                <div class="doc-item-subtitle">Nombre del titular de logística, teléfono directo y correo electrónico de seguimiento</div>
               </div>
             </label>
 
             <label class="doc-item">
               <input type="checkbox" id="docCom3">
               <div>
-                <div class="doc-item-title">Responsable del Área de Pagos</div>
-                <div class="doc-item-subtitle">Contacto de cuentas por pagar y tesorería</div>
+                <div class="doc-item-title">Responsable del Área de Pagos y Tesorería</div>
+                <div class="doc-item-subtitle">Contacto directo del área contable para recepción de anticipos y cuentas de gastos</div>
               </div>
             </label>
 
             <label class="doc-item">
               <input type="checkbox" id="docCom4">
               <div>
-                <div class="doc-item-title">Días y Horarios para Pagos</div>
-                <div class="doc-item-subtitle">Ventanas para revisión de cuentas de gastos</div>
+                <div class="doc-item-title">Ventanas Operativas y Horarios de Pago</div>
+                <div class="doc-item-subtitle">Días y horarios programados de la empresa para dispersión de transferencias SPEI</div>
               </div>
             </label>
 
             <label class="doc-item">
               <input type="checkbox" id="docCom5">
               <div>
-                <div class="doc-item-title">Información Bancaria de Referencia</div>
-                <div class="doc-item-subtitle">Cuentas habilitadas para reembolsos de saldos</div>
+                <div class="doc-item-title">Cuentas Bancarias para Reembolsos</div>
+                <div class="doc-item-subtitle">Institución financiera, titular y CLABE para devolución inmediata de saldos a favor</div>
               </div>
             </label>
           </div>
         </div>
 
+        <!-- Action Bar: Progress & Buttons -->
         <div class="checklist-actions">
           <div class="progress-bar-container">
             <div class="progress-label">
-              <span>Progreso de Documentación</span>
+              <span>ESTADO DE INTEGRACIÓN</span>
               <span id="docProgressCount">0 de 11 (0%)</span>
             </div>
             <div class="progress-bar">
@@ -297,31 +313,39 @@
             </div>
           </div>
 
-          <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
-            <button class="btn btn-outline" id="selectAllDocs" style="padding:0.5rem 1rem; font-size:0.85rem;">Marcar Todo</button>
-            <button class="btn btn-outline" id="deselectAllDocs" style="padding:0.5rem 1rem; font-size:0.85rem;">Limpiar</button>
-            <button class="btn btn-primary" id="printChecklist" style="padding:0.5rem 1.25rem; font-size:0.85rem; display:inline-flex; align-items:center; gap:0.4rem;">
-              <span class="material-symbols-outlined" style="font-size:18px;">print</span>
-              <span>Imprimir Lista Seleccionada</span>
+          <div style="display:flex; gap:0.65rem; flex-wrap:wrap; align-items:center;">
+            <button class="btn btn-outline" id="selectAllDocs">
+              <span class="material-symbols-outlined">done_all</span>
+              <span>Marcar Todo</span>
+            </button>
+            <button class="btn btn-outline" id="deselectAllDocs">
+              <span class="material-symbols-outlined">restart_alt</span>
+              <span>Limpiar</span>
+            </button>
+            <button class="btn btn-primary" id="printChecklist">
+              <span class="material-symbols-outlined">print</span>
+              <span>Imprimir Hoja Membretada</span>
             </button>
           </div>
         </div>
 
-        <!-- PRINT ONLY FOOTER (Impresión limpia oficial) -->
+        <!-- PRINT ONLY FOOTER (Impresión limpia oficial de expediente) -->
         <div class="print-only-footer">
           <div class="print-signature-grid">
             <div class="print-sig-box">
               <div class="sig-line"></div>
-              <span>Firma y Nombre del Importador / Cliente</span>
+              <span>Firma y Nombre del Importador / Representante Legal</span>
+              <p style="font-size:0.62rem; color:#666666; margin-top:2px;">RFC: __________________________ • Fecha: ______/______/2026</p>
             </div>
             <div class="print-sig-box">
               <div class="sig-line"></div>
-              <span>Recepción y Verificación Agencia CNN</span>
+              <span>Recepción y Verificación • Agencia Aduanal CNN</span>
+              <p style="font-size:0.62rem; color:#666666; margin-top:2px;">Sello Oficial de Expediente Integrado y Firma del Asesor</p>
             </div>
           </div>
           <div class="print-footer-info">
-            <p><strong>CORPORATIVO EN COMERCIO EXTERIOR CNN, S.A. DE C.V.</strong> • Poniente 16 Mz. 3 Lt. 4 Dpto. 1, Col. Cuchilla del Tesoro, CDMX</p>
-            <p>Teléfonos Directos: 55 0000 0000 | 55 0000 0000 • Correo: contacto@corpextcnn.com</p>
+            <p><strong>CORPORATIVO EN COMERCIO EXTERIOR CNN, S.A. DE C.V.</strong> • Poniente 16 Mz. 3 Lt. 4 Dpto. 1, Col. Cuchilla del Tesoro, CDMX, C.P. 07900</p>
+            <p>Teléfonos de Operaciones: 55 0000 0000 | 55 0000 0000 • Correo Electrónico Institucional: contacto@corpextcnn.com</p>
           </div>
         </div>
       </div>
@@ -340,50 +364,49 @@
               <span class="logo-subtitle">Comercio Exterior S.A. de C.V.</span>
             </div>
           </div>
-          <p>Soluciones seguras, eficientes y expeditas para sus operaciones de comercio internacional.</p>
+          <p>Soluciones aduanales de alta precisión y desaduanamiento expedito para sus operaciones en los principales puertos y fronteras de México.</p>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-title">Páginas</h4>
+          <h4 class="footer-title">Páginas Principales</h4>
           <div class="footer-links">
             <a href="index.html">Inicio</a>
             <a href="nosotros.html">Sobre Nosotros</a>
             <a href="servicios.html">Servicios y Aduanas</a>
-            <a href="requisitos.html">Requisitos</a>
+            <a href="requisitos.html">Requisitos de Cliente</a>
           </div>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-title">Recursos</h4>
+          <h4 class="footer-title">Recursos Operativos</h4>
           <div class="footer-links">
-            <a href="consignacion.html">Datos de Consignación</a>
-            <a href="consignacion.html">Cuentas Bancarias</a>
+            <a href="servicios.html">Aduanas y Nodos de Despacho</a>
             <a href="requisitos.html">Checklist de Documentos</a>
-            <a href="contacto.html">Contacto y Mapa</a>
+            <a href="requisitos.html">Formato Oficial de Expediente</a>
+            <a href="contacto.html">Mesa de Cotizaciones</a>
           </div>
         </div>
 
         <div class="footer-col">
-          <h4 class="footer-title">Contacto</h4>
+          <h4 class="footer-title">Mesa de Operaciones</h4>
           <div class="footer-links">
-            <span style="color:var(--text-muted); font-size:0.9rem;"><span class="material-symbols-outlined" style="font-size:16px;">location_on</span> Cuchilla del Tesoro, CDMX</span>
-            <span style="color:var(--text-muted); font-size:0.9rem;"><span class="material-symbols-outlined" style="font-size:16px;">mail</span> contacto@corpextcnn.com</span>
-            <span style="color:var(--text-muted); font-size:0.9rem;"><span class="material-symbols-outlined" style="font-size:16px;">smartphone</span> Cel: 55 0000 0000</span>
+            <span><span class="material-symbols-outlined" style="font-size:16px; color:var(--accent-gold);">location_on</span> Cuchilla del Tesoro, CDMX</span>
+            <a href="mailto:contacto@corpextcnn.com"><span class="material-symbols-outlined" style="font-size:16px; color:var(--accent-gold);">mail</span> contacto@corpextcnn.com</a>
+            <a href="tel:5500000000"><span class="material-symbols-outlined" style="font-size:16px; color:var(--accent-gold);">smartphone</span> Cel / WA: 55 0000 0000</a>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>© <span id="year">2026</span> CORPORATIVO EN COMERCIO EXTERIOR CNN, S.A. DE C.V.</div>
-        <div>Optimizado para <strong>GitHub Pages</strong></div>
+        <div>© <span id="year">2026</span> CORPORATIVO EN COMERCIO EXTERIOR CNN, S.A. DE C.V. • Todos los derechos reservados.</div>
+        <div style="display:flex; align-items:center; gap:0.4rem;">
+          <span class="material-symbols-outlined" style="font-size:14px; color:var(--accent-gold);">verified</span>
+          <span>Alojado y optimizado en <strong>GitHub Pages</strong></span>
+        </div>
       </div>
     </div>
   </footer>
 
   <script src="app.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('printDate').textContent = new Date().toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' });
-  </script>
 </body>
 </html>
