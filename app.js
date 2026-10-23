@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollAnimations();
   initFAQ();
   initYearAndDates();
+  initScrollEffects();
+  initPrincipiosTabs();
+  initInfiniteServicesSlider();
 });
 
 /* --------------------------------------------------------------------------
@@ -35,7 +38,6 @@ function initThemeToggle() {
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('cnn_theme', newTheme);
     updateThemeIcon(themeBtn, newTheme);
-    showToast(`Modo ${newTheme === 'dark' ? 'Oscuro' : 'Claro'} activado`);
   });
 }
 
@@ -273,6 +275,20 @@ function initContactForm() {
   const form = document.getElementById('quoteForm');
   if (!form) return;
 
+  // Preseleccionar aduana si viene por parámetro de URL (?aduana=manzanillo)
+  const urlParams = new URLSearchParams(window.location.search);
+  const aduanaParam = urlParams.get('aduana');
+  const aduanaSelect = document.getElementById('quoteAduana');
+  if (aduanaParam && aduanaSelect) {
+    const valLower = aduanaParam.toLowerCase();
+    for (const opt of aduanaSelect.options) {
+      if (opt.value.toLowerCase().includes(valLower)) {
+        aduanaSelect.value = opt.value;
+        break;
+      }
+    }
+  }
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -290,7 +306,7 @@ function initContactForm() {
 
     const subject = encodeURIComponent(`Solicitud de Cotización: ${service} - ${name}`);
     const body = encodeURIComponent(
-`Hola Corporativo en Comercio Exterior CNN,
+`Hola CORPORATIVO EN COMERCIO EXTERIOR CNN, S.A. DE C.V.,
 
 Deseo solicitar información y cotización para operaciones de comercio exterior:
 
@@ -399,4 +415,305 @@ function showToast(message) {
   setTimeout(() => {
     toast.remove();
   }, 3000);
+}
+
+/* --------------------------------------------------------------------------
+   11. Scroll Reading Progress & Hero Parallax
+   -------------------------------------------------------------------------- */
+function initScrollEffects() {
+  /* 1. Barra de progreso de lectura en Header */
+  const header = document.querySelector('.header');
+  if (header && !header.querySelector('.scroll-progress-bar')) {
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress-bar';
+    header.appendChild(progressBar);
+
+    const updateProgressBar = () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      progressBar.style.width = `${Math.min(100, Math.max(0, scrolled))}%`;
+    };
+
+    window.addEventListener('scroll', updateProgressBar, { passive: true });
+    updateProgressBar();
+  }
+
+  /* 2. Parallax suave en la imagen del Hero (Desktop > 1024px) */
+  const heroImg = document.querySelector('.hero-img-wrapper img');
+  const heroCard = document.querySelector('.hero-metric-float');
+
+  if (heroImg || heroCard) {
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (window.innerWidth > 1024) {
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollY < 900) {
+              if (heroImg) {
+                heroImg.style.transform = `translateY(${scrollY * 0.08}px) scale(1.04)`;
+              }
+              if (heroCard) {
+                heroCard.style.transform = `translateY(${scrollY * -0.04}px)`;
+              }
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+}
+
+/* --------------------------------------------------------------------------
+   12. Editorial Split Layout Tabs: Misión, Visión y Política de Calidad
+   -------------------------------------------------------------------------- */
+function initPrincipiosTabs() {
+  const container = document.querySelector('.principios-split-container');
+  if (!container) return;
+
+  const tabButtons = container.querySelectorAll('.principios-tab-btn');
+  const panels = container.querySelectorAll('.principios-tab-panel');
+  if (!tabButtons.length || !panels.length) return;
+
+  function switchTab(btn) {
+    const targetId = btn.getAttribute('data-tab');
+    const targetPanel = container.querySelector(`#panel-${targetId}`);
+    if (!targetPanel) return;
+
+    tabButtons.forEach(b => {
+      const isTarget = (b === btn);
+      b.classList.toggle('is-active', isTarget);
+      b.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+    });
+
+    panels.forEach(p => {
+      if (p === targetPanel) {
+        p.style.display = 'block';
+        p.offsetHeight;
+        p.classList.add('is-active');
+      } else {
+        p.classList.remove('is-active');
+        p.style.display = 'none';
+      }
+    });
+  }
+
+  tabButtons.forEach((btn, index) => {
+    btn.addEventListener('click', () => switchTab(btn));
+
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        const nextIndex = (index + 1) % tabButtons.length;
+        tabButtons[nextIndex].focus();
+        switchTab(tabButtons[nextIndex]);
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const prevIndex = (index - 1 + tabButtons.length) % tabButtons.length;
+        tabButtons[prevIndex].focus();
+        switchTab(tabButtons[prevIndex]);
+      }
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   13. Infinite Horizontal Services Slider & Interactive Controls
+   -------------------------------------------------------------------------- */
+function initInfiniteServicesSlider() {
+  const containers = document.querySelectorAll('.services-slider-container');
+  if (!containers.length) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  containers.forEach(container => {
+    const track = container.querySelector('.infinite-services-track');
+    const viewport = container.querySelector('.services-slider-viewport') || container;
+    const prevBtn = container.querySelector('.slider-arrow-prev');
+    const nextBtn = container.querySelector('.slider-arrow-next');
+    if (!track) return;
+
+    // Desactivar animación CSS para dar control total al motor continuo por requestAnimationFrame
+    track.style.animation = 'none';
+
+    let currentX = 0;
+    let targetX = 0;
+    let isPaused = false;
+    let isTransitioning = false;
+    let autoSpeed = prefersReducedMotion ? 0 : 0.85; // ~51px por segundo en pantallas de 60fps
+    let animationFrameId = null;
+    let resumeTimeout = null;
+
+    let repeatWidth = 0;
+    let cardStep = 0;
+
+    function updateDimensions() {
+      const allCards = track.querySelectorAll('.service-card');
+      if (allCards.length >= 10) {
+        // La serie 2 inicia exactamente en la tarjeta 10 (índice 9, clon de la tarjeta 1)
+        const diffClone = allCards[9].offsetLeft - allCards[0].offsetLeft;
+        const diffStep = allCards[1].offsetLeft - allCards[0].offsetLeft;
+        if (diffClone > 0) repeatWidth = diffClone;
+        if (diffStep > 0) cardStep = diffStep;
+      }
+      if (!repeatWidth || repeatWidth <= 0) {
+        repeatWidth = (track.scrollWidth / 2) || 3636;
+        cardStep = (allCards[0] ? allCards[0].offsetWidth + 24 : 404);
+      }
+    }
+
+    // Medición inicial y en carga de recursos
+    updateDimensions();
+    window.addEventListener('load', updateDimensions, { passive: true });
+    window.addEventListener('resize', updateDimensions, { passive: true });
+
+    // Bucle continuo de animación de alto rendimiento a 60/120fps
+    let lastTime = performance.now();
+    function tick(now) {
+      const elapsed = now - lastTime;
+      lastTime = now;
+
+      // Evitar saltos de posición si el usuario cambia de pestaña
+      if (elapsed > 100) {
+        animationFrameId = requestAnimationFrame(tick);
+        return;
+      }
+
+      const delta = Math.min(elapsed / 16.67, 2.5); // Normalizar a 60fps
+
+      if (isTransitioning) {
+        // Easing de interpolación suave al presionar flechas
+        const diff = targetX - currentX;
+        if (Math.abs(diff) > 0.6) {
+          currentX += diff * 0.14 * delta;
+        } else {
+          currentX = targetX;
+          isTransitioning = false;
+        }
+      } else if (!isPaused && autoSpeed > 0) {
+        // Desplazamiento automático continuo
+        currentX -= autoSpeed * delta;
+        targetX = currentX;
+      }
+
+      // Rebobinado infinito sin interrupciones ni parpadeos en ambas direcciones
+      if (repeatWidth > 0) {
+        if (currentX <= -repeatWidth) {
+          currentX += repeatWidth;
+          targetX += repeatWidth;
+        } else if (currentX > 0) {
+          currentX -= repeatWidth;
+          targetX -= repeatWidth;
+        }
+      }
+
+      track.style.transform = `translate3d(${currentX.toFixed(2)}px, 0, 0)`;
+      animationFrameId = requestAnimationFrame(tick);
+    }
+
+    animationFrameId = requestAnimationFrame(tick);
+
+    // Pausar desplazamiento automático cuando el cursor pasa sobre las tarjetas
+    viewport.addEventListener('mouseenter', () => {
+      isPaused = true;
+    });
+
+    viewport.addEventListener('mouseleave', () => {
+      if (!isTransitioning) {
+        isPaused = false;
+      }
+    });
+
+    // Desplazamiento manual mediante flechas de navegación
+    function step(direction) {
+      updateDimensions();
+      isPaused = true;
+      isTransitioning = true;
+
+      // Si se hace clic consecutivo, acumular el avance hacia la siguiente tarjeta
+      if (Math.abs(targetX - currentX) < 2) {
+        targetX = currentX - (direction * cardStep);
+      } else {
+        targetX -= (direction * cardStep);
+      }
+
+      clearTimeout(resumeTimeout);
+      resumeTimeout = setTimeout(() => {
+        isTransitioning = false;
+        const isHovered = container.matches(':hover') || viewport.matches(':hover');
+        if (!isHovered) {
+          isPaused = false;
+        }
+      }, 2500);
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        step(1); // Avanzar (desplaza hacia la izquierda)
+      });
+      nextBtn.addEventListener('mouseenter', () => {
+        isPaused = true;
+      });
+      nextBtn.addEventListener('mouseleave', () => {
+        if (!isTransitioning && !viewport.matches(':hover')) {
+          isPaused = false;
+        }
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        step(-1); // Retroceder (desplaza hacia la derecha)
+      });
+      prevBtn.addEventListener('mouseenter', () => {
+        isPaused = true;
+      });
+      prevBtn.addEventListener('mouseleave', () => {
+        if (!isTransitioning && !viewport.matches(':hover')) {
+          isPaused = false;
+        }
+      });
+    }
+
+    // Soporte para gestos táctiles (Swipe) en dispositivos móviles
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let isTouching = false;
+
+    track.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      isTouching = true;
+      isPaused = true;
+    }, { passive: true });
+
+    track.addEventListener('touchend', (e) => {
+      if (!isTouching) return;
+      isTouching = false;
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffX = touchStartX - touchEndX;
+      const diffY = touchStartY - touchEndY;
+
+      if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX > 0) {
+          step(1); // Deslizar hacia la izquierda -> Siguiente tarjeta
+        } else {
+          step(-1); // Deslizar hacia la derecha -> Tarjeta anterior
+        }
+      } else {
+        setTimeout(() => {
+          isPaused = false;
+        }, 1200);
+      }
+    }, { passive: true });
+  });
 }
